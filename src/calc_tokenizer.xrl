@@ -1,5 +1,6 @@
 Definitions.
 
+Parenthesis = \(|\)
 Whitespace  = [\s\t]
 Terminator  = \n|\r\n|\r
 Comma       = ,
@@ -15,6 +16,7 @@ Rules.
 (\+|\-)?{D}+\.{D}+((E|e)(\+|\-)?{D}+)? : {token,{float,list_to_float(TokenChars),TokenLine}}.
 {Operators}   : {token, {list_to_atom(TokenChars), TokenLine}}.
 {Comparators} : {token, {list_to_atom(TokenChars), TokenLine}}.
+{Parenthesis} : {token, {list_to_atom(TokenChars), TokenLine}}.
 
 Erlang code.
 

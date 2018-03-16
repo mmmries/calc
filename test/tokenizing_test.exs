@@ -35,4 +35,18 @@ defmodule Calc.TokenizingTest do
       {:<, 1},
     ]
   end
+
+  test "tokenizing parenthesized statements" do
+    str = '(14 + 10) * 8'
+    assert {:ok, tokens, _} = :calc_tokenizer.string(str)
+    assert tokens == [
+      {:"(", 1},
+      {:int, 14, 1},
+      {:+, 1},
+      {:int, 10, 1},
+      {:")", 1},
+      {:*, 1},
+      {:int, 8, 1},
+    ]
+  end
 end
