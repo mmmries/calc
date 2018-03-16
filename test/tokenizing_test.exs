@@ -19,4 +19,20 @@ defmodule Calc.TokenizingTest do
       {:float, 1100.0, 5},
     ]
   end
+
+  test "tokenizing operators" do
+    str = '+ - / * == > >= <= <'
+    assert {:ok, tokens, _} = :calc_tokenizer.string(str)
+    assert tokens == [
+      {:+, 1},
+      {:-, 1},
+      {:/, 1},
+      {:*, 1},
+      {:==, 1},
+      {:>, 1},
+      {:>=, 1},
+      {:<=, 1},
+      {:<, 1},
+    ]
+  end
 end
