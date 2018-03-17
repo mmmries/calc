@@ -3,16 +3,10 @@ defmodule Calc do
   Documentation for Calc.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Calc.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def execute(expression) when is_binary(expression) do
+    with {:ok, tokens, _} <- expression |> String.to_charlist |> :calc_tokenizer.string,
+         {:ok, ast} <- :calc_parser.parse(tokens),
+         {result, []} <- Code.eval_quoted(ast),
+         do: result
   end
 end
