@@ -6,6 +6,6 @@ defmodule Calc.InterpretTest do
   end
 
   test "you can execute an expression with variables" do
-    assert Calc.interpret("(14 + a) * b", [a: 10, b: 8]) == 192
+    assert Calc.interpret("(14 + a) * b", %{a: 10, b: 8}) == 192
   end
 end

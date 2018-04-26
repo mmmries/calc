@@ -4,7 +4,7 @@ defmodule Calc do
     eval(ast, variables)
   end
   def eval(ast, variables) when is_tuple(ast) do
-    {ret, _} = Code.eval_quoted(ast, variables)
+    {ret, _} = Code.eval_quoted(ast, vars: variables)
     ret
   end
 

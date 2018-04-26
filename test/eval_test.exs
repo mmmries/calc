@@ -6,6 +6,6 @@ defmodule Calc.EvalTest do
   end
 
   test "you can execute an expression with variables" do
-    assert Calc.eval("(14 + a) * b", [a: 10, b: 8]) == 192
+    assert Calc.eval("(14 + a) * b", %{a: 10, b: 8}) == 192
   end
 end

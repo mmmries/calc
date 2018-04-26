@@ -35,7 +35,7 @@ expression -> expression '<' expression : {'<', [], ['$1', '$3']}.
 expression -> expression '<=' expression : {'<=', [], ['$1', '$3']}.
 expression -> int : value('$1').
 expression -> float : value('$1').
-expression -> var : {'var!', [], [{value('$1'), [], 'Elixir'}]}.
+expression -> var : {{'.', [], [{'__aliases__', [], ['Elixir.Map']}, 'fetch!']}, [], [{'var!', [], [{'vars', [], 'Elixir'}]}, value('$1')]}.
 
 Erlang code.
 
