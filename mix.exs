@@ -21,7 +21,7 @@ defmodule Calc.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:benchee, "~> 0.12.1"}
+      {:benchee, "~> 0.13", only: :dev}
     ]
   end
 end
