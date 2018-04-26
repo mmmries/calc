@@ -12,11 +12,12 @@ Rules.
 
 {Whitespace}  : skip_token.
 {Terminator}  : skip_token.
-(\+|\-)?{D}+  : {token,{int,list_to_integer(TokenChars),TokenLine}}.
-(\+|\-)?{D}+\.{D}+((E|e)(\+|\-)?{D}+)? : {token,{float,list_to_float(TokenChars),TokenLine}}.
-{Operators}   : {token, {list_to_atom(TokenChars), TokenLine}}.
-{Comparators} : {token, {list_to_atom(TokenChars), TokenLine}}.
-{Parenthesis} : {token, {list_to_atom(TokenChars), TokenLine}}.
+(\+|\-)?{D}+  : {token,{int,list_to_integer(TokenChars)}}.
+(\+|\-)?{D}+\.{D}+((E|e)(\+|\-)?{D}+)? : {token,{float,list_to_float(TokenChars)}}.
+{Operators}   : {token, {list_to_atom(TokenChars)}}.
+{Comparators} : {token, {list_to_atom(TokenChars)}}.
+{Parenthesis} : {token, {list_to_atom(TokenChars)}}.
+[A-Za-z]+     : {token, {var, list_to_atom(TokenChars)}}.
 
 Erlang code.
 

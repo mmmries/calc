@@ -1,6 +1,7 @@
 Terminals
   float
   int
+  var
   '+'
   '-'
   '*'
@@ -34,7 +35,8 @@ expression -> expression '<' expression : {'<', [], ['$1', '$3']}.
 expression -> expression '<=' expression : {'<=', [], ['$1', '$3']}.
 expression -> int : value('$1').
 expression -> float : value('$1').
+expression -> var : {'var!', [], [{value('$1'), [], 'Elixir'}]}.
 
 Erlang code.
 
-value({_type, Value, _line}) -> Value.
+value({_type, Value}) -> Value.
